@@ -15,7 +15,6 @@ const superheroSchema = new mongoose.Schema({
 
 const SuperHero = mongoose.model('SuperHero', superheroSchema);
 
-// insertSuperHero();
 async function insertSuperHero() {
     const hero = new SuperHero({
         nombreSuperHeroe: 'Spiderman',
@@ -32,7 +31,8 @@ async function insertSuperHero() {
     console.log('Superhéroe insertado:', hero);
 }
 
-// updateSuperHero('Spiderman');
+// insertSuperHero();
+
 async function updateSuperHero(nombreSuperHeroe) {
     const result = await SuperHero.updateOne(
         { nombreSuperHeroe: nombreSuperHeroe },
@@ -41,17 +41,21 @@ async function updateSuperHero(nombreSuperHeroe) {
     console.log('Resultado de la actualización:', result);
 }
 
-// deleteSuperHero('Spiderman');
+// updateSuperHero('Spiderman');
+
 async function deleteSuperHero(nombreSuperHeroe) {
     const result = await SuperHero.deleteOne({ nombreSuperHeroe: nombreSuperHeroe });
     console.log('Superhéroe eliminado:', result);
 }
 
-// findSuperHeroes();
+// deleteSuperHero('Spiderman');
+
 async function findSuperHeroes() {
     const heroes = await SuperHero.find({ planetaOrigen: 'Tierra' });
     console.log('Superhéroes encontrados:', heroes);
 }
+
+// findSuperHeroes();
 
 mongoose.connect( 'mongodb+srv://Grupo-07:grupo07@cursadanodejs.ls9ii.mongodb.net/Node-js' )
     .then( () => console.log('Conexión exitosa a MongoDB') )
